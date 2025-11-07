@@ -19,8 +19,15 @@ def create_and_write_file(filename, content):
         filename: 생성할 파일의 이름 (문자열)
         content: 파일에 쓸 내용 (문자열)
     """
+    try :
+        with open (filename, "w", encoding="UTF-8") as f :
+            data = "content"
+            f.write = data
+    except Exception as e:
+        print(f"{e}오류로 인해 f{filename}의 생성 및 쓰기가 실패하였습니다.")
     
-
+    else :
+        print(f"{filename}이 성공적으로 인해 생성 및 쓰기가 완료되었습니다.")
 
 
 
@@ -37,6 +44,15 @@ def read_and_print_file(filename):
         filename: 읽을 파일의 이름 (문자열)
     """
 
+    try :
+        with open (filename, "r", encoding = "UTF-8") as f :
+            data = f.readlines()
+            for line in data :
+                print(line.rstrip("\n"))
+    except Exception as e:
+        print(f"에러 발생 에러 코드 : {e}")
+    else :
+        print("작업 완료")
 
 
 # 파일 입출력 연습문제 3: 파일 추가 쓰기
@@ -52,6 +68,16 @@ def append_to_file(filename, content):
         filename: 추가 쓸 파일의 이름 (문자열)
         content: 파일에 추가할 내용 (문자열)
     """
+
+    try :
+        with open (filename, "a", encoding = "UTF-8") as f :
+            data = content
+            f.write(data)
+    except Exception as e :
+        pass
+
+    else :
+        print("작업 완료")
 
 
 
@@ -72,3 +98,15 @@ def read_specific_line(filename, line_number):
       filename: 파일 이름 (문자열)
       line_number: 읽을 줄 번호 (정수, 1부터 시작)
     """
+
+    try :
+        with open (filename, "r", encoding = "UTF-8") as f :
+            lines = f.readlines()
+            if 1 <= line_number < (lines-1) :
+                data = f.line(line_number)
+                print(data)
+            
+            else : 
+                print("유효하지 않은 줄 번호입니다.")
+    except Exception as e :
+        pass
