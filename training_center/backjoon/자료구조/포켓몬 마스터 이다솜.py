@@ -117,40 +117,31 @@
 """
 import sys
 
-def solve (data : str ) -> str :
+def solve(data: str) -> str:
     poke_lines = data.splitlines()
     N, M = map(int, poke_lines[0].split())
 
-    name_dict= dict()
-    
+    num_to_name = {}   # 번호 -> 이름
+    name_to_num = {}   # 이름 -> 번호
 
-    for i in range (1, N + 1) :
+    for i in range(1, N + 1):
         name = poke_lines[i].strip()
-        name_dict[i] = name
+        num_to_name[i] = name
+        name_to_num[name] = i
 
     result = []
-
-    for i in range (N+1, N+M+1) :
+    for i in range(N + 1, N + M + 1):
         q = poke_lines[i].strip()
-
-        if q.isdigit() :
-            result.append(name_dict[int(q)])
-        else :
-            result.append(find_value(name_dict, q))
+        if q.isdigit():
+            result.append(num_to_name[int(q)])
+        else:
+            result.append(str(name_to_num[q]))
 
     return "\n".join(result)
 
-def find_value(dictionary, find_value) :
-    res = []
-
-    for key, value in dictionary.items() :
-        if value == find_value :
-            res.append(key)
-    return res
-    
-
-def main() :
+def main():
     data = sys.stdin.read().strip()
+    print(solve(data))
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     main()
