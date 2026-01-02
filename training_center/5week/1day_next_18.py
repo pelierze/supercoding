@@ -23,6 +23,14 @@ def solve(data : str) -> str :
                                '2024-01-06', '2024-01-07', '2024-01-08', '2024-01-09', '2024-01-10']),
         'Sales': [100, 150, 120, 200, 180, 110, 190, 220, 170, 130]}
     df = pd.DataFrame(data)
+
+    df_new = df.copy()
+
+    df_combined = pd.concat([df, df_new], axis = 0, ignore_index = True)
+
+    return df_combined
+
+    
     
 
 def main() :

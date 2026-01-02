@@ -24,6 +24,14 @@ def solve(data : str) -> str :
         'Sales': [100, 150, 120, 200, 180, 110, 190, 220, 170, 130]}
     df = pd.DataFrame(data)
     
+    result = pd.cut(
+        df["Value"],
+        bins=[0, 10, 20, 30],
+        labels=["Low", "Medium", "High"]
+    )
+
+
+    return result
 
 def main() :
     data = sys.stdin.read().strip()

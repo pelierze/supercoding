@@ -14,7 +14,7 @@ import sys
 import pandas as pd
 
 
-def solve(data : str) -> str :
+def solve(data) :
     data = {'Category': ['A', 'B', 'A', 'C', 'B', 'A', 'C', 'C', 'B', 'A'],
         'Value': [10, 20, 15, 25, 18, 12, 22, 28, 19, 17],
         'Group': [1, 2, 1, 2, 1, 2, 1, 2, 1, 1],
@@ -22,6 +22,12 @@ def solve(data : str) -> str :
                                '2024-01-06', '2024-01-07', '2024-01-08', '2024-01-09', '2024-01-10']),
         'Sales': [100, 150, 120, 200, 180, 110, 190, 220, 170, 130]}
     df = pd.DataFrame(data)
+
+    df = df.set_index("Date")
+
+    result = df[df.index > "2024-01-05"]
+
+    return result
     
 
 def main() :

@@ -22,6 +22,12 @@ def solve(data : str) -> str :
                                '2024-01-06', '2024-01-07', '2024-01-08', '2024-01-09', '2024-01-10']),
         'Sales': [100, 150, 120, 200, 180, 110, 190, 220, 170, 130]}
     df = pd.DataFrame(data)
+
+    result = df.groupby(["Category", "Group"])["Value"].max()
+
+    return result.to_string()
+
+
     
 
 def main() :
