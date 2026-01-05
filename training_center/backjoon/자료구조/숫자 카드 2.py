@@ -25,7 +25,7 @@ def solve(data : str) -> str :
 
     card_count = dict()
 
-    for i in range (N) :
+    for _ in range (N) :
         x = int(tokens[idx])
         card_count[x] = card_count.get(x, 0) + 1
         idx += 1
@@ -35,7 +35,7 @@ def solve(data : str) -> str :
 
     result = []
 
-    for i in range (M) :
+    for _ in range (M) :
         q = int(tokens[idx])
         result.append(str(card_count.get(q, 0)))
         idx += 1

@@ -14,7 +14,7 @@ def solve(data : str) -> int :
 
     data_lines = data.splitlines()
 
-    N = data_lines[0]
+    N = int(data_lines[0])
     V = int(data_lines[2])
     numbers = list(map(int, data_lines[1].split()))
 
