@@ -49,3 +49,35 @@ def main() :
 
 if __name__ == "__main__" :
     main()
+
+"""
+import sys
+
+def solve(data: str) -> str:
+    tokens = iter(data.split())
+
+    N = int(next(tokens))
+
+    card_count = dict()
+
+    for _ in range(N):
+        x = int(next(tokens))
+        card_count[x] = card_count.get(x, 0) + 1
+
+    M = int(next(tokens))
+
+    result = []
+    for _ in range(M):
+        q = int(next(tokens))
+        result.append(str(card_count.get(q, 0)))
+
+    return " ".join(result)
+
+def main():
+    data = sys.stdin.read().strip()
+    print(solve(data))
+
+if __name__ == "__main__":
+    main()
+
+"""
